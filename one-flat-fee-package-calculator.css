@@ -1,5 +1,5 @@
 .one-flat-fee-package-calculator {
-	background: #9bb9d2;
+	background: #ebebeb;
 	padding: 20px;
 	border-radius: 15px;
 	max-width: 100%;
@@ -8,7 +8,7 @@
 
 .one-flat-fee-package-calculator h1 {
 	color: #ffffff;
-	background: #243443;
+	background: #b48d41;
 	padding: 12px;
 	border-radius: 7px;
 	font-size: 36px;
@@ -22,7 +22,6 @@
 	padding: 0;
 	margin: 0 0 20px;
 	text-align: center;
-	color: #ffffff;
 }
 
 .one-flat-fee-package-calculator form {
@@ -32,7 +31,6 @@
 }
 
 .one-flat-fee-package-calculator form label {
-	color: #ffffff;
 	text-align: left;
 	float: left;
 }
@@ -63,7 +61,7 @@
 
 .one-flat-fee-package-calculator
 	button.one-flat-fee-package-calculator-submit-button {
-	background: #243443;
+	background: #b48d41;
 	border: 0;
 	height: 50px;
 	color: #ffffff;
@@ -90,12 +88,37 @@
 }
 
 .one-flat-fee-package-calculator .one-flat-fee-package-calculator-estimate {
-	color: #ffffff;
 	margin-bottom: 20px;
 }
 
+.one-flat-fee-package-calculator-estimate table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 1rem;
+}
+
+.one-flat-fee-package-calculator-estimate th,
+.one-flat-fee-package-calculator-estimate td {
+	padding: 12px;
+	border: 1px solid #ddd;
+	font-family: Roboto, sans-serif;
+}
+
+.one-flat-fee-package-calculator-estimate th {
+	background-color: #f4f4f4;
+	text-align: left;
+}
+
+.one-flat-fee-package-calculator-estimate td.red {
+	color: red;
+}
+
+.one-flat-fee-package-calculator-estimate td.green {
+	color: green;
+}
+
 .one-flat-fee-package-calculator p.disclaimer {
-	color: #ffffff;
 	margin-top: 20px;
 	font-size: 14px;
+	text-align: left;
 }
