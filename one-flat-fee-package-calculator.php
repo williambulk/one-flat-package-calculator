@@ -30,11 +30,46 @@ function one_flat_fee_package_calculator() { ?>
                 <label><strong>Selling Price ($):</strong></label>
                 <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="$CAD" required>
             </div>
-
-            <button type="button" class="one-flat-fee-package-calculator-submit-button">Calculate</button>
-
-            <div class="one-flat-fee-package-calculator-estimate"></div>
         </form>
+
+        <table class="one-flat-fee-package-calculator-estimate">
+            <thead>
+                <tr>
+                    <th>Expenses</th>
+                    <th>Traditional Agent</th>
+                    <th>One Flat Fee</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Seller's Realtor Commission:</td>
+                <td class="seller-commission"></td>
+                <td class="one-flat-fee"></td>
+            </tr>
+            <tr>
+                <td>Buyer's Realtor Commission:</td>
+                <td class="buyer-commission"></td>
+                <td class="buyer-commission"></td>
+            </tr>
+            <tr>
+                <td><strong>Total Fee:</strong></td>
+                <td class="agent-total"></td>
+                <td class="one-flat-fee-total"></td>
+            </tr>
+            <tr>
+                <td>GST:</td>
+                <td class="agent-gst"></td>
+                <td class="one-flat-fee-gst"></td>
+            </tr>
+            <tr>
+                <td><strong>Total Fees You Pay:</strong></td>
+                <td class="total-fees-you-pay red"></td>
+                <td class="one-flat-fee-total green"></td>
+            </tr>
+            <tfoot>
+                <td><strong>Your Total Savings:</strong></td>
+                <td colspan="2" class="total-savings green"></td>
+            </tfoot>
+        </table>
 
         <p class="disclaimer">
             *Based on buyers commission of 3.22% on first $100k/1.15% on balance<br>
