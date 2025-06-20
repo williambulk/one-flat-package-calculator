@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	oneFlatFeePackage.forEach((calculator) => {
 		let sellingPrice = calculator.querySelector(".selling-price input");
-		const submitButton = calculator.querySelector(
-			".one-flat-fee-package-calculator-submit-button"
-		);
+
+		// Set default value
+		sellingPrice.value = 1000000;
 
 		const formatCurrencyInput = (inputElement) => {
 			inputElement.addEventListener("input", function () {
@@ -21,11 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		};
 
 		formatCurrencyInput(sellingPrice);
-
-		submitButton.addEventListener("click", (event) => {
-			event.preventDefault();
-			calculatePackage();
-		});
 
 		const calculatePackage = () => {
 			let sellingPriceValue =
@@ -63,12 +58,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			let savings = traditionalTotal - offTotal;
 
-			// Output
 			let result = `
-				<table>
+				<table class="one-flat-fee-package-calculator-estimate">
+					<tr>
+						<thead>
+							<th>Expenses</th>
+							<th>Traditional Agent</th>
+							<th>One Flat Fee</th>
+						</thead>
+					</tr>
 					<tr>
 						<td>Seller's Realtor Commission:</td>
 						<td>${sellerCommission.toLocaleString("en-CA", {
+							style: "currency",
+							currency: "CAD",
+						})}</td>
+						<td>${oneFlatFee.toLocaleString("en-CA", {
 							style: "currency",
 							currency: "CAD",
 						})}</td>
@@ -79,28 +84,54 @@ document.addEventListener("DOMContentLoaded", function () {
 							style: "currency",
 							currency: "CAD",
 						})}</td>
+						<td>${buyerCommission.toLocaleString("en-CA", {
+							style: "currency",
+							currency: "CAD",
+						})}</td>
 					</tr>
 					<tr>
-						<td><strong>Traditional Agent Total (incl. GST):</strong></td>
+						<td>Total Fee:</td>
+						<td>${traditionalFee.toLocaleString("en-CA", {
+							style: "currency",
+							currency: "CAD",
+						})}</td>
+						<td>${offFee.toLocaleString("en-CA", {
+							style: "currency",
+							currency: "CAD",
+						})}</td>
+					</tr>
+					<tr>
+						<td>GST:</td>
+						<td>${traditionalGST.toLocaleString("en-CA", {
+							style: "currency",
+							currency: "CAD",
+						})}</td>
+						<td>${offGST.toLocaleString("en-CA", {
+							style: "currency",
+							currency: "CAD",
+						})}</td>
+					</tr>
+					<tr>
+						<td><strong>Total Fees You Pay:</strong></td>
 						<td class="red"><strong>${traditionalTotal.toLocaleString("en-CA", {
 							style: "currency",
 							currency: "CAD",
 						})}</strong></td>
-					</tr>
-					<tr>
-						<td><strong>One Flat Fee Total (incl. GST):</strong></td>
 						<td class="green"><strong>${offTotal.toLocaleString("en-CA", {
 							style: "currency",
 							currency: "CAD",
 						})}</strong></td>
 					</tr>
-					<tr>
+					<tfoot>
 						<td><strong>Your Total Savings:</strong></td>
-						<td class="green"><strong>${savings.toLocaleString("en-CA", {
-							style: "currency",
-							currency: "CAD",
-						})}</strong></td>
-					</tr>
+						<td colspan="2" class="featured-result"><strong>${savings.toLocaleString(
+							"en-CA",
+							{
+								style: "currency",
+								currency: "CAD",
+							}
+						)}</strong></td>
+					</tfoot>
 				</table>
 			`;
 
@@ -108,5 +139,12 @@ document.addEventListener("DOMContentLoaded", function () {
 				".one-flat-fee-package-calculator-estimate"
 			).innerHTML = result;
 		};
+
+		sellingPrice.addEventListener("input", (event) => {
+			calculatePackage();
+		});
+
+		// Calculate with default value on page load
+		calculatePackage();
 	});
 });
