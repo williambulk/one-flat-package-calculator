@@ -36,10 +36,12 @@
 }
 
 .one-flat-fee-package-calculator form input {
+	font-size: 20px;
 	border: 1px solid #e4e4e4;
-	padding: 8px 15px;
+	padding: 15px;
 	border-radius: 5px;
 	background-color: #fff;
+	margin-top: 5px;
 	margin-bottom: 0px;
 	color: #666666;
 	width: fill-available;
@@ -60,29 +62,6 @@
 }
 
 .one-flat-fee-package-calculator
-	button.one-flat-fee-package-calculator-submit-button {
-	background: #b48d41;
-	border: 0;
-	height: 50px;
-	color: #ffffff;
-	text-transform: uppercase;
-	font-weight: bold;
-	cursor: pointer;
-	border-radius: 5px;
-	transition: 0.3s ease all;
-}
-
-.one-flat-fee-package-calculator
-	button.one-flat-fee-package-calculator-submit-button:is(
-		:hover,
-		:active,
-		:focus
-	) {
-	background: #090d11;
-	transition: 0.3s ease all;
-}
-
-.one-flat-fee-package-calculator
 	.one-flat-fee-package-calculator-estimate:empty {
 	display: none;
 }
@@ -91,22 +70,28 @@
 	margin-bottom: 20px;
 }
 
-.one-flat-fee-package-calculator-estimate table {
+.one-flat-fee-package-calculator-estimate {
 	width: 100%;
 	border-collapse: collapse;
 	margin-top: 1rem;
 }
 
+.one-flat-fee-package-calculator-estimate thead {
+	background-color: #b48d41;
+	color: #ffffff;
+	text-align: left;
+}
+
 .one-flat-fee-package-calculator-estimate th,
 .one-flat-fee-package-calculator-estimate td {
 	padding: 12px;
+
+	@media (max-width: 768px) {
+		padding: 12px 6px;
+	}
+
 	border: 1px solid #ddd;
 	font-family: Roboto, sans-serif;
-}
-
-.one-flat-fee-package-calculator-estimate th {
-	background-color: #f4f4f4;
-	text-align: left;
 }
 
 .one-flat-fee-package-calculator-estimate td.red {
@@ -115,6 +100,15 @@
 
 .one-flat-fee-package-calculator-estimate td.green {
 	color: green;
+}
+
+.one-flat-fee-package-calculator-estimate tfoot {
+	color: #ffffff;
+	background-color: #858585;
+}
+
+.one-flat-fee-package-calculator-estimate tfoot td.featured-result {
+	font-size: 26px;
 }
 
 .one-flat-fee-package-calculator p.disclaimer {
